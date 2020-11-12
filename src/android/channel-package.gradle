@@ -1,46 +1,48 @@
-/* -------------------------------- channel-package.gradle start --------------------------- */
-build {
-    defaultConfig {
-        // Gradle后如果出现报错，需要配置flavor dimension的维度是该版本号，这样维度就是都是统一的了
-        // Error: All flavors must now belong to a named flavor dimension. Learn more at ...
-        flavorDimensions "versionCode"
-    }
-    // 各个渠道
-    productFlavors {
-        huawei {}
-        meizu {}
-        xiaomi {}
-        oppo {}
-        vivo {}
-        douyin {}
-        yingyongbao {}
-        baidu {}
-    }
-    productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [JOYO_CHANNEL: name]
-    }
+android {
+    /* -------------------------------- channel-package.gradle start --------------------------- */
+    build {
+        defaultConfig {
+            // Gradle后如果出现报错，需要配置flavor dimension的维度是该版本号，这样维度就是都是统一的了
+            // Error: All flavors must now belong to a named flavor dimension. Learn more at ...
+            flavorDimensions "versionCode"
+        }
+        // 各个渠道
+        productFlavors {
+            huawei {}
+            meizu {}
+            xiaomi {}
+            oppo {}
+            vivo {}
+            douyin {}
+            yingyongbao {}
+            baidu {}
+        }
+        productFlavors.all {
+            flavor -> flavor.manifestPlaceholders = [JOYO_CHANNEL: name]
+        }
 
-    // 设置输出APK名称
-    // Android Studio 2.3版本
-//        applicationVariants.all { variant ->
-//            variant.outputs.each { output ->
-//                def outputFile = output.outputFile
-//                if (outputFile != null && outputFile.name.endsWith('.apk')) {
-//                    def fileName = "app_${variant.productFlavors[0].name}_v${defaultConfig.versionName}.apk"
-//                    output.outputFile = new File(outputFile.parent, fileName)
-//                }
-//            }
-//        }
+        // 设置输出APK名称
+        // Android Studio 2.3版本
+    //        applicationVariants.all { variant ->
+    //            variant.outputs.each { output ->
+    //                def outputFile = output.outputFile
+    //                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+    //                    def fileName = "app_${variant.productFlavors[0].name}_v${defaultConfig.versionName}.apk"
+    //                    output.outputFile = new File(outputFile.parent, fileName)
+    //                }
+    //            }
+    //        }
 
-    // 设置输出APK名称
-    // Android Studio 3.0版本
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            def channelName = variant.productFlavors[0].name
-            // 自定义路径，Android Studio会默认在app目录下生成各渠道文件夹
-//                variant.getPackageApplicationProvider().get().outputDirectory = new File("${project.projectDir.absolutePath}/build/outputs/apk/${channelName}/${variant.buildType.name}")
-            outputFileName = "xuechexwz-trainee-${channelName}-v${variant.versionName}.apk"
+        // 设置输出APK名称
+        // Android Studio 3.0版本
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                def channelName = variant.productFlavors[0].name
+                // 自定义路径，Android Studio会默认在app目录下生成各渠道文件夹
+    //                variant.getPackageApplicationProvider().get().outputDirectory = new File("${project.projectDir.absolutePath}/build/outputs/apk/${channelName}/${variant.buildType.name}")
+                outputFileName = "xuechexwz-trainee-${channelName}-v${variant.versionName}.apk"
+            }
         }
     }
+    /* -------------------------------- channel-package.gradle end --------------------------- */
 }
-/* -------------------------------- channel-package.gradle end --------------------------- */
