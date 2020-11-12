@@ -36,5 +36,7 @@
 
         <source-file src="src/android/ChannelPackagePlugin.java" target-dir="src/com/joyo/cordova/channel">
         </source-file>
+
+        <framework src="src/android/channel-package.gradle" custom="true" type="gradleReference"/>
     </platform>
 </plugin>
