@@ -14,7 +14,7 @@ import java.util.Locale;
 
 public class ChannelPackagePlugin extends CordovaPlugin {
     // 获取渠道方法名
-    private static final String ACTION_GET_CHANNEL = "getChannel";
+    private static final String ACTION_GET_CHANNEL = "getchannel";
 
     // meta-data中的渠道key
     private final static String CHANNEL_KEY_DEFAULT = "JOYO_CHANNEL";
