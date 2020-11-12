@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-channel-package",
+  "version": "1.0.0",
+  "description": "Cordova ChannelPackagePlugin Plugin Powerd by JoyoDuan",
+  "cordova": {
+    "id": "cordova-plugin-channel-package",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cordova",
+    "ChannelPackagePlugin",
+    "JoyoDuan",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "JoyoDuan",
+  "license": "Apache 2.0"
+}

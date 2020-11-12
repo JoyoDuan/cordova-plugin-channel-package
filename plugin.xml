@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-channel-package" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ChannelPackagePlugin</name>
+    <description>Cordova ChannelPackagePlugin Plugin Powerd by JoyoDuan</description>
+    <author email="JoyoDuan@163.com" href="">
+        JoyoDuan
+    </author>
+    <license>Apache 2.0</license>
+    <keywords>cordova, ChannelPackagePlugin, JoyoDuan</keywords>
+
+    <!-- 对外js调用 name一般对应js对用native的类名-->
+    <js-module name="ChannelPackagePlugin" src="www/channel-package.js">
+        <!-- target对应js中module.exports的原型对象，这里默认会注册到windows对象中，即ChannelPackagePlugin.getChannel 和 window.ChannelPackagePlugin.getChannel都可以 -->
+        <clobbers target="ChannelPackagePlugin"></clobbers>
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <!-- 加了preference后，add plugin 时要跟variable参数 -->
+        <preference name="channelKey" default="JOYO_CHANNEL" />
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <!-- name一般对应js对用native的类名 -->
+            <feature name="ChannelPackagePlugin">
+                <param name="android-package" value="com.joyo.cordova.channel.ChannelPackagePlugin">
+                </param>
+            </feature>
+        </config-file>
+
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application" mode="merge">
+            <!-- channel-package需要添加 -->
+            <meta-data
+                android:name="$channelKey"
+                android:value="${JOYO_CHANNEL}" />
+        </config-file>
+
+        <source-file src="src/android/ChannelPackagePlugin.java" target-dir="src/com/joyo/cordova/channel">
+        </source-file>
+    </platform>
+</plugin>
