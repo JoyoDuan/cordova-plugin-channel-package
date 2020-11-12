@@ -1,4 +1,4 @@
-package com.joyo.core.utils;
+package com.joyo.cordova.channel;
 
 import android.content.Context;
 import android.content.SharedPreferences;
