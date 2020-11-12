@@ -34,9 +34,9 @@
                 android:value="${JOYO_CHANNEL}" />
         </config-file>
 
-        <source-file src="src/android/ChannelUtils.java" target-dir="src/com/joyo/cordova/channel" />
-        <source-file src="src/android/ChannelPackagePlugin.java" target-dir="src/com/joyo/cordova/channel" />
+        <source-file src="src/android/ChannelUtils.java" target-dir="src/com/joyo/cordova/channel"></source-file>
+        <source-file src="src/android/ChannelPackagePlugin.java" target-dir="src/com/joyo/cordova/channel"></source-file>
 
-        <framework src="src/android/channel-package.gradle" custom="true" type="gradleReference" />
+        <framework src="src/android/channel-package.gradle" custom="true" type="gradleReference"/>
     </platform>
 </plugin>
